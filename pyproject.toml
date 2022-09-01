@@ -1,13 +1,12 @@
 [tool.poetry]
 name = "caramel"
 version = "0.1.0"
-description = ""
-authors = ["Your Name <you@example.com>"]
+description = "Package to convert strings between the snake_case, camelCase, PascalCase and other arbitrary cases"
+authors = ["Thomas Reichardt <treichardt@swin.edu.au>"]
+license = "MIT"
 
 [tool.poetry.dependencies]
 python = "^3.8"
-ply = "^3.11"
-pyhumps = "^3.5.3"
 
 [tool.poetry.dev-dependencies]
 pytest = "^5.2"

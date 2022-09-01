@@ -2,4 +2,20 @@ arbitrary, camel, snake, pascal
 one, one, one, One
 one_two, oneTwo, one_two, OneTwo
 one_twoThree, oneTwoThree, one_two_three, OneTwoThree
+just_A_capital, justACapital, just_a_capital, JustACapital
+ATwoCapitalString, aTwoCapitalString, a_two_capital_string, ATwoCapitalString
+ITWorksHereToo, ITWorksHereToo, IT_works_here_too, ITWorksHereToo
+splitACRONYMSCorrectly, splitACRONYMSCorrectly, split_ACRONYMS_correctly, SplitACRONYMSCorrectly
+acronym_BETWEEN_words, acronymBETWEENWords, acronym_BETWEEN_words, AcronymBETWEENWords
+WORDBetweenACRONYMS, WORDBetweenACRONYMS, WORD_between_ACRONYMS, WORDBetweenACRONYMS
+dealingWITH123, dealingWITH123, dealing_WITH123, DealingWITH123
+123_numbers, 123Numbers, 123_numbers, 123Numbers
+Middle_100_Numbers, middle100Numbers, middle100_numbers, Middle100Numbers
+joined-by-dashes, joinedByDashes, joined_by_dashes, JoinedByDashes
+acronym-IN-dashes, acronymINDashes, acronym_IN_dashes, AcronymINDashes
+numbers-1-in-2-dashes, numbers1In2Dashes, numbers1_in2_dashes, Numbers1In2Dashes
+a1b2c3, a1B2C3, a1_b2_c3, A1B2C3
+_initialUnderscore, _initialUnderscore, _initial_underscore, _InitialUnderscore
+end_Underscore_, endUnderscore_, end_underscore_, EndUnderscore_
+__--_complex_bookends--_--, __--_complexBookends--_--, __--_complex_bookends--_--, __--_ComplexBookends--_--
  , , ,

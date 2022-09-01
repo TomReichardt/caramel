@@ -1,4 +1,5 @@
 from .tokens import Acronym, Word, Number, Other
+from .token_container import TokenContainer
 
 LEX_TOKENS = [Acronym, Word, Number, Other]
 
@@ -36,4 +37,4 @@ def lexer(data):
         if not lexeme:
             break
         lexemes.append(lexeme)
-    return lexemes
+    return TokenContainer(lexemes)

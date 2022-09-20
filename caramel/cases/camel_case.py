@@ -8,10 +8,10 @@ from ..lexer.tokens import Acronym, Word, Other
 def camel_case_constructor(tokens):
     return constructor(
         rules=(
-            remove(types=(Other)),
-            first_lower(types=(Word)),
-            body_title(types=(Word)),
-            all_upper(types=(Acronym)),
+            remove(types=(Other,)),
+            first_lower(types=(Word,)),
+            body_title(types=(Word,)),
+            all_upper(types=(Acronym,)),
         ),
         tokens=tokens,
     )

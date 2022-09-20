@@ -8,9 +8,9 @@ from ..lexer.tokens import Acronym, Word, Other
 def pascal_case_constructor(tokens):
     return constructor(
         rules=(
-            remove(types=(Other)),
-            all_title(types=(Word)),
-            all_upper(types=(Acronym)),
+            remove(types=(Other,)),
+            all_title(types=(Word,)),
+            all_upper(types=(Acronym,)),
         ),
         tokens=tokens,
     )

@@ -1,12 +1,15 @@
-class Acronym:
+class Token:
     def __init__(self, value, location):
         self.value = value
         self.length = len(value)
         self.location = location
+        self.visible = True
 
     def __repr__(self):
-        return f"Acronym: {self.value} - {self.location}"
+        return f"{self.__class__.__name__}: {self.value} - {self.location}"
 
+
+class Acronym(Token):
     @classmethod
     def lex(cls, line, location):
         for idx, char in enumerate(line):
@@ -22,15 +25,7 @@ class Acronym:
             return cls(line[:idx], location)
 
 
-class Word:
-    def __init__(self, value, location):
-        self.value = value
-        self.length = len(value)
-        self.location = location
-
-    def __repr__(self):
-        return f"Word: {self.value} - {self.location}"
-
+class Word(Token):
     @classmethod
     def lex(cls, line, location):
         for idx, char in enumerate(line):
@@ -45,15 +40,7 @@ class Word:
             return cls(line[:idx], location)
 
 
-class Number:
-    def __init__(self, value, location):
-        self.value = value
-        self.length = len(value)
-        self.location = location
-
-    def __repr__(self):
-        return f"Number: {self.value} - {self.location}"
-
+class Number(Token):
     @classmethod
     def lex(cls, line, location):
         for idx, char in enumerate(line):
@@ -66,15 +53,7 @@ class Number:
             return cls(line[:idx], location)
 
 
-class Other:
-    def __init__(self, value, location):
-        self.value = value
-        self.length = len(value)
-        self.location = location
-
-    def __repr__(self):
-        return f"Other: {self.value} - {self.location}"
-
+class Other(Token):
     @classmethod
     def lex(cls, line, location):
         for idx, char in enumerate(line):

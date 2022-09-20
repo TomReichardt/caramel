@@ -2,6 +2,10 @@ def constructor(rules, tokens):
     for rule in rules:
         tokens = rule(tokens)
 
-    body = "".join([t.value for t in tokens.body])
-    bookends = [bookend.value if bookend else "" for bookend in tokens.bookends]
-    return bookends[0] + body + bookends[1]
+    converted_tokens = tokens.body
+    if tokens.bookends[0]:
+        converted_tokens.insert(0, tokens.bookends[0])
+    if tokens.bookends[1]:
+        converted_tokens.append(tokens.bookends[1])
+
+    return "".join([t.value for t in converted_tokens if t.visible])

@@ -15,7 +15,7 @@ class TokenContainer:
         self.bookends, self.body = pop_bookends(tokens)
         self.first, self.rest = self.body[0], self.body[1:]
         self._create_groupings()
-    
+
     def _create_groupings(self):
         self.groups = [[]]
         self.words, self.acronyms, self.numbers, self.others = [], [], [], []
@@ -25,7 +25,6 @@ class TokenContainer:
                 self.groups[-1].append(token)
             elif type(token) is Other:
                 self.groups.append([])
-    
+
     def get_all_by_type(self, token_type):
         return getattr(self, f"{token_type.__name__.lower()}s")
-

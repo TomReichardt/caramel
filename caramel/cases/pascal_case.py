@@ -1,18 +1,16 @@
 from .utils import handle_bad_input
-from ..constructor import constructor
-from ..constructor.rules import remove, all_upper, all_title
+from ..constructor import Constructor
 from ..lexer import lexer
 from ..lexer.tokens import Acronym, Word, Other
 
 
 def pascal_case_constructor(tokens):
-    return constructor(
-        rules=(
-            remove(types=(Other,)),
-            all_title(types=(Word,)),
-            all_upper(types=(Acronym,)),
-        ),
-        tokens=tokens,
+    return (
+        Constructor(tokens)
+        .remove(types=(Other,))
+        .set_body_title(types=(Word,))
+        .set_body_upper(types=(Acronym,))
+        .construct()
     )
 
 

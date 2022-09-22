@@ -1,18 +1,16 @@
 from .utils import handle_bad_input
-from ..constructor import constructor
-from ..constructor.rules import remove, all_lower, join_tokens_with
+from ..constructor import Constructor
 from ..lexer import lexer
 from ..lexer.tokens import Acronym, Word, Other
 
 
 def snake_case_constructor(tokens):
-    return constructor(
-        rules=(
-            remove(types=(Other,)),
-            all_lower(types=(Word,)),
-            join_tokens_with(char="_", types=(Acronym, Word)),
-        ),
-        tokens=tokens,
+    return (
+        Constructor(tokens)
+        .remove(types=(Other,))
+        .set_body_lower(types=(Word,))
+        .join_tokens_with(char="_", types=(Acronym, Word))
+        .construct()
     )
 
 

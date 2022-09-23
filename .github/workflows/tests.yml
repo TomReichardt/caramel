@@ -15,6 +15,7 @@ jobs:
     steps:
     - uses: actions/checkout@v3
     - name: Set up Python ${{ matrix.python-version }}
+      id: setup-python
       uses: actions/setup-python@v3
       with:
         python-version: ${{ matrix.python-version }}
@@ -48,12 +49,12 @@ jobs:
     # Cache your dependencies (i.e. all the stuff in your `pyproject.toml`). Note the cache
     # key: if you're using multiple Python versions, or multiple OSes, you'd need to include
     # them in the cache key. I'm not, so it can be simple and just depend on the poetry.lock.
-    - name: cache deps
-      id: cache-deps
+    - name: Load cached venv
+      id: cached-pip-wheels
       uses: actions/cache@v2
       with:
-        path: .venv
-        key: pydeps-${{matrix.os}}-${{matrix.python-version}}-${{ hashFiles('**/poetry.lock') }}
+        path: ~/.cache
+        key: venv-${{ runner.os }}-${{ steps.setup-python.outputs.python-version }}-${{ hashFiles('**/poetry.lock') }}
 
     # Install dependencies. `--no-root` means "install all dependencies but not the project
     # itself", which is what you want to avoid caching _your_ code. The `if` statement
